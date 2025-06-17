@@ -1,0 +1,104 @@
+{
+  "info": {
+    "name": "Microservices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Orders Service",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8082/api/orders",
+            "query": [
+              {
+                "key": "userId",
+                "value": "1"
+              },
+              {
+                "key": "amount",
+                "value": "100.00"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Get User Orders",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8082/api/orders",
+            "query": [
+              {
+                "key": "userId",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8082/api/orders/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payments Service",
+      "item": [
+        {
+          "name": "Get Account Balance",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8081/api/accounts/1"
+          }
+        },
+        {
+          "name": "Create Account",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8081/api/accounts",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"balance\": 1000.00}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Deposit Money",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8081/api/accounts/1/deposit",
+            "query": [
+              {
+                "key": "amount",
+                "value": "500.00"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Withdraw Money",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8081/api/accounts/1/withdraw",
+            "query": [
+              {
+                "key": "amount",
+                "value": "200.00"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+} 
